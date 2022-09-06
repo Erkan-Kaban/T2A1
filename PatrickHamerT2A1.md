@@ -49,6 +49,11 @@ The downside of this is that if a set of cirumstances arise where the user has l
 Finally keeping some sort of **backup** whether it be on a cloud or a remote server would ensure that in the case of a disaster the information would still be accessible.
 
 ### Q8 Research what your legal obligations are in relation to handling user data and how they can be met for the project
+Schedule 1 of the Privacy and Data Protection Act 2014 (Vic) contains the Information Privacy Principles (IPPs). This is the bare minimum required for businesses in the public sector and should be the lowest standard achieved by any organisation.
+Confidentiality and annonymity are two very import aspects of the privacy act. User data must be kept confidential and where possible must not be linked to any unique identifiers. While this may seem impossible while using databases, The fact of the matter is that as long as a user knows their login details it would be possible to maintain a degree of this annonymity. Having two seperate databases, one used for the general purpose of the app and one used for accounts/infrastructure could be maintained, with only relevant staff able to access the information that identifies customers.
+Confidentiality coud be achieved with a combination of authentication, authorisation and encryption as per the answers to earlier questions. Keeping information locked behind security gateways would stop unauthorized staff accessing it and encryption would make sure that even if hackers got it, the information they had would be unusable.
+Another aspect of the IPP act is informed consent. That customers would know what kind of data was being collected and stored as well as who that data was being shared with. This could be achieved with disclaimers and disclosure agreements. I think in this instance transparency is probably the best safeguard, so being up fornt and discussing with customers, ensuring they understand what data is being collected, why and who it will be shared with is paramount.
+
 
 ### Q9 	Describe the structural aspects of the relational database model. Your description should include information about the structure in which data is stored and how relations are represented in that structure.
 
@@ -68,3 +73,4 @@ Finally keeping some sort of **backup** whether it be on a cloud or a remote ser
 https://agilemanifesto.org/
 https://hive.com/blog/what-is-agile-project-management-methodology/
 https://www.browserstack.com/guide/manual-testing-tutorial Jash Unadkat, Technical Content Writer at BrowserStack - December 11, 2021
+https://ovic.vic.gov.au/privacy/information-privacy-principles-full-text/
