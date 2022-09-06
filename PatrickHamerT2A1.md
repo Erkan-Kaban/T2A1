@@ -5,7 +5,14 @@
 <!-- The architecture of a web app describes the elements that make that app work and how they interact together. In our online library we should mention how we are using the MVC pattern, and how main file, controllers, models, schemas, etc. work together to show the required information (that is stored in a database) in JSON format.
 A web app has an additional view layer, so the user interacts with the app through a website that renders the information in html pages -->
 ### Q2 Identify a database management system (DBMS) commonly used in web applications (including Flask) and discuss the pros and cons of this database150-250
-
+PostgreSQL is an open source, object relational DBMS that has been around for decades and is the go-to for many industry professionals. It is operated through bash and while it has an amazing following it also has its limitations.
+For a start, the fact that it is open source makes this a very cost effective way to do business, as well as making it possible to tailor it to your specific business needs. The downside of this is that without any one company owning it, it may be user friendly and commonly used it lacks the marketing budget to make it ubiquitous as well as not having as many skilled profesionals available for support.
+It DOES support.
+It is comparitively slower than some other DBMS (such as MySQ), however it DOES have increased integerity due to iuts ACID (Atomicity, Consistency, Isolation, and Durability) compliance. PostgreSQL is considered one of the most stable, secure DBMS in the market at the moment.
+When it comes to scalability PostgreSQL talks a big game and has pretty extreme limits on the size of databases (32TB), however after reading some reviews it would appear that horizontal scaling can be a bit complex when it comes to setting up and managing.
+While using PostgreSQL is fairly straightforward, and the use of write-ahead logging (WAL) makes it a fairly fault tolernat system, intitial install and setup can be a challenge for inexperienced users.
+With all that being said there is a reason that PostgreSQL has been awarded "Database System of the year" a few times.
+It is capable, stable, secure, efficient, and fairly intuitive to use.
 ### Q3 Discuss the implementation of Agile project management methodology
 Agile project management is a more adaptive and efficient form of project management. Whereas in the past the recipe for a sellable product went in a direct line from conception to release the Agile methodology relies on a more flexible, iterative approach. Agile uses the **SCRUM** methodology, a set of protocols and processes that are used to continuously improve on problems as well as encourage collaboration.
 From the beginning we start with Conception. As opposed to waterfall project management, Agile takes into account the user's story so they can truly grasp the goal of what they are designing.
@@ -72,5 +79,11 @@ Another aspect of the IPP act is informed consent. That customers would know wha
 ### References:
 https://agilemanifesto.org/
 https://hive.com/blog/what-is-agile-project-management-methodology/
+
 https://www.browserstack.com/guide/manual-testing-tutorial Jash Unadkat, Technical Content Writer at BrowserStack - December 11, 2021
+
 https://ovic.vic.gov.au/privacy/information-privacy-principles-full-text/
+https://content.legislation.vic.gov.au/sites/default/files/2022-08/14-60aa028%20authorised.pdf
+
+https://www.cybertec-postgresql.com/en/postgresql-overview/advantages-of-postgresql/
+https://www.guru99.com/introduction-postgresql.html
