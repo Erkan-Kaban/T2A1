@@ -1,9 +1,3 @@
-# Workbook Assignment A
-### Patrick Hamer
-
-### Q1 Describe the architecture of a typical Flask application: 200-300
-<!-- The architecture of a web app describes the elements that make that app work and how they interact together. In our online library we should mention how we are using the MVC pattern, and how main file, controllers, models, schemas, etc. work together to show the required information (that is stored in a database) in JSON format.
-A web app has an additional view layer, so the user interacts with the app through a website that renders the information in html pages -->
 ### Q2 Identify a database management system (DBMS) commonly used in web applications (including Flask) and discuss the pros and cons of this database150-250
 PostgreSQL is an open source, object relational DBMS that has been around for decades and is the go-to for many industry professionals. It is operated through bash and while it has an amazing following it also has its limitations.
 For a start, the fact that it is open source makes this a very cost effective way to do business, as well as making it possible to tailor it to your specific business needs. The downside of this is that without any one company owning it, it may be user friendly and commonly used it lacks the marketing budget to make it ubiquitous as well as not having as many skilled profesionals available for support.
@@ -58,45 +52,3 @@ Schedule 1 of the Privacy and Data Protection Act 2014 (Vic) contains the Inform
 Confidentiality and annonymity are two very import aspects of the privacy act. User data must be kept confidential and where possible must not be linked to any unique identifiers. While this may seem impossible while using databases, The fact of the matter is that as long as a user knows their login details it would be possible to maintain a degree of this annonymity. Having two seperate databases, one used for the general purpose of the app and one used for accounts/infrastructure could be maintained, with only relevant staff able to access the information that identifies customers.
 Confidentiality coud be achieved with a combination of authentication, authorisation and encryption as per the answers to earlier questions. Keeping information locked behind security gateways would stop unauthorized staff accessing it and encryption would make sure that even if hackers got it, the information they had would be unusable.
 Another aspect of the IPP act is informed consent. That customers would know what kind of data was being collected and stored as well as who that data was being shared with. This could be achieved with disclaimers and disclosure agreements. I think in this instance transparency is probably the best safeguard, so being up fornt and discussing with customers, ensuring they understand what data is being collected, why and who it will be shared with is paramount.
-
-
-### Q9 	Describe the structural aspects of the relational database model. Your description should include information about the structure in which data is stored and how relations are represented in that structure.
-In a relational database model data is stored in a collection of tables, each having a unique name. Within each table there are columns, which store categorical data, and rows (or tuples) that store relational data. 
-For example in a database of books, a row will provide information about each element. Lets say in this example that is each book. A row may consist of a ID number, title, author, date of publication, genre, length.
-The columns however will be the cate*gorical data, so in this case there will be a column for each of the above pieces of infoprmation related to each individual book.
-Each table will have a **primary key?**, which is a *unique* identifier for each element. If the table is linked to another table, lets say in this case there is a table for each author's information(Auth-ID, name, nationality, age, country of residence) then a **foreign key** would be used to link the tables. In this case perhaps instead of having an author name in the original table, it wouldf have an author ID thus linking to the authors details.
-Relations are represented in three basic way:
-- **One to one** relations are when there is only one record on each side fo the relationship. In the above example think Author ID <-> Author name.
-- **One to many** relations consist of a lopsided amount of records, with one on one side and more than one on the other. Tink for example Author ->Book1, Book2, Book3
-- **Many to many** relationships are when there are multiple records on both sides of the relationship. For for academic books that have multiple authors, you would have Auth1, Auth2, Auth3 <-> Book1, Book2, Book3.
-
-### Q10 Describe the integrity aspects of the relational database model. Your description should include information about the types of data integrity and how they can be enforced in a relational database.
-Relational databases require integrity, otherwise what is the point? There are three main types of integrity.
-**Entity integrity** requires every entity to have a unique and not-null primary key. You will often see this as some form of ID, like UserID, where any other property of an entity could be dublipacted.
-**Referential integrity** requires that every foreign key *is* a primary key of another table, and that it is not of a conflicting data type. This ensures that the reference is valid and data can be retrieved.
-**Domain integrity** means that every record in a domain meets the requirements specified by that domain. For example if the domain required your bank account number and you instead wrote 'bananas' this would mess up the integrity of the database.
-
-
-### Q11 Describe the manipulative aspects of the relational database model. Your description should include information about the ways in which data is manipulated (added, removed, changed, and retrieved) in a relational database.
-
-### Q12 Conduct research into a web application (app) and answer the following parts:  a. List and describe the software used by the app.50-100 per part
-- b. Describe the hardware used to host the app.
-- c. Describe the interaction of technologies within the app
-- d. Describe the way data is structured within the app
-- e. Identify entities which must be tracked by the app
-- f. Identify the relationships and associations between the entities you have identified in part (e)
-- g. Design a schema using an Entity Relationship Diagram (ERD) appropriate for the database of this website (assuming a relational database model)
-
-### References:
-https://agilemanifesto.org/
-https://hive.com/blog/what-is-agile-project-management-methodology/
-
-https://www.browserstack.com/guide/manual-testing-tutorial Jash Unadkat, Technical Content Writer at BrowserStack - December 11, 2021
-
-https://ovic.vic.gov.au/privacy/information-privacy-principles-full-text/
-https://content.legislation.vic.gov.au/sites/default/files/2022-08/14-60aa028%20authorised.pdf
-
-https://www.dnv.com/article/the-three-pillar-approach-to-cyber-security-data-and-information-protection-165683
-
-https://www.cybertec-postgresql.com/en/postgresql-overview/advantages-of-postgresql/
-https://www.guru99.com/introduction-postgresql.html
