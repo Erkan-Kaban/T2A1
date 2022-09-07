@@ -2,8 +2,13 @@
 ### Patrick Hamer
 
 ### Q1 Describe the architecture of a typical Flask application: 200-300
-<!-- The architecture of a web app describes the elements that make that app work and how they interact together. In our online library we should mention how we are using the MVC pattern, and how main file, controllers, models, schemas, etc. work together to show the required information (that is stored in a database) in JSON format.
-A web app has an additional view layer, so the user interacts with the app through a website that renders the information in html pages -->
+A typical flask application, beginning from the user themselves would start at the User interface. This is called the *client layer*. This is essentially the user-end app that will be used to request and receive information, usuaslly written in HTML, CSS and JS.
+The app will communicate with an API layer, which is basically software that allows different machines to communicate with one another. The API will forward instructions to the server's *app layer*, which is where to the logic required to perform requests will be stored. This will be written on Python, Ruby, Java or any other programming language. This is where the claculations will be performed to figure out exactly what it is the server side should be doing.
+Information will be retrieved from the *database layer*. This layer is where the the bulk of information is stored and where you will find applications like PostgreSQL in operation. It will the SQL that allows for data to be retreved according to the logic dictated by the app layer. This is also where you will find the files for things like video and audio.
+*3rd Party* layers are things such as Paypal, 'Login with facebook', Steam etc. These are 3rd party apps that can be linked to work in another app.
+Finally there is the *administrative layer*, which is the system that manages and polices the entire operation.
+
+
 ### Q2 Identify a database management system (DBMS) commonly used in web applications (including Flask) and discuss the pros and cons of this database150-250
 PostgreSQL is an open source, object relational DBMS that has been around for decades and is the go-to for many industry professionals. It is operated through bash and while it has an amazing following it also has its limitations.
 For a start, the fact that it is open source makes this a very cost effective way to do business, as well as making it possible to tailor it to your specific business needs. The downside of this is that without any one company owning it, it may be user friendly and commonly used it lacks the marketing budget to make it ubiquitous as well as not having as many skilled profesionals available for support.
@@ -78,6 +83,11 @@ Relational databases require integrity, otherwise what is the point? There are t
 
 
 ### Q11 Describe the manipulative aspects of the relational database model. Your description should include information about the ways in which data is manipulated (added, removed, changed, and retrieved) in a relational database.
+Following the CRUD methodology, the following commands are used to manipulate data in a relational database model:
+**INSERT** is how we add data to a database. When inserted,  a table must be specified, data must have a primary key assigned (this can be automated) and the colums to be populated must be specified as well as what they are to be populated with. Data entered must conform to column requirements re: data type.
+**DELETE** allows for the deletion of one or more (using the WHERE command) rows from a table. Tablename must be specified and care must be taken as this action is irreversible.
+**UPDATE** allows for the manipulation of data contained within columns. The use of the WHERE command is essential here or else you could end up updating entire columns of information. First the table must be specified, then the new contents, then the WHERE. as with deletion, this action is irreversible. 
+**SELECT** is the command used to retrieve one or many records from a table. A table must be specified (FROM) as well as at least one column that you want to see the information from. An asterisk can be used as a catch-all.
 
 ### Q12 Conduct research into a web application (app) and answer the following parts:  a. List and describe the software used by the app.50-100 per part
 - b. Describe the hardware used to host the app.
@@ -86,6 +96,8 @@ Relational databases require integrity, otherwise what is the point? There are t
 - e. Identify entities which must be tracked by the app
 - f. Identify the relationships and associations between the entities you have identified in part (e)
 - g. Design a schema using an Entity Relationship Diagram (ERD) appropriate for the database of this website (assuming a relational database model)
+
+
 
 ### References:
 https://agilemanifesto.org/
