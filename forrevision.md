@@ -1,3 +1,14 @@
+# Workbook Assignment A
+### Patrick Hamer
+
+### Q1 Describe the architecture of a typical Flask application: 200-300
+A typical flask application, beginning from the user themselves would start at the User interface. This is called the *client layer*. This is essentially the user-end app that will be used to request and receive information, usuaslly written in HTML, CSS and JS.
+The app will communicate with an API layer, which is basically software that allows different machines to communicate with one another. The API will forward instructions to the server's *app layer*, which is where to the logic required to perform requests will be stored. This will be written on Python, Ruby, Java or any other programming language. This is where the claculations will be performed to figure out exactly what it is the server side should be doing.
+Information will be retrieved from the *database layer*. This layer is where the the bulk of information is stored and where you will find applications like PostgreSQL in operation. It will the SQL that allows for data to be retreved according to the logic dictated by the app layer. This is also where you will find the files for things like video and audio.
+*3rd Party layer*s are things such as Paypal, 'Login with facebook', Steam etc. These are 3rd party apps that can be linked to work in another app.
+Finally there is the *administrative layer*, which is the system that manages and polices the entire operation.
+
+
 ### Q2 Identify a database management system (DBMS) commonly used in web applications (including Flask) and discuss the pros and cons of this database150-250
 PostgreSQL is an open source, object relational DBMS that has been around for decades and is the go-to for many industry professionals. It is operated through bash and while it has an amazing following it also has its limitations.
 For a start, the fact that it is open source makes this a very cost effective way to do business, as well as making it possible to tailor it to your specific business needs. The downside of this is that without any one company owning it, it may be user friendly and commonly used it lacks the marketing budget to make it ubiquitous as well as not having as many skilled profesionals available for support.
@@ -52,3 +63,28 @@ Schedule 1 of the Privacy and Data Protection Act 2014 (Vic) contains the Inform
 Confidentiality and annonymity are two very import aspects of the privacy act. User data must be kept confidential and where possible must not be linked to any unique identifiers. While this may seem impossible while using databases, The fact of the matter is that as long as a user knows their login details it would be possible to maintain a degree of this annonymity. Having two seperate databases, one used for the general purpose of the app and one used for accounts/infrastructure could be maintained, with only relevant staff able to access the information that identifies customers.
 Confidentiality coud be achieved with a combination of authentication, authorisation and encryption as per the answers to earlier questions. Keeping information locked behind security gateways would stop unauthorized staff accessing it and encryption would make sure that even if hackers got it, the information they had would be unusable.
 Another aspect of the IPP act is informed consent. That customers would know what kind of data was being collected and stored as well as who that data was being shared with. This could be achieved with disclaimers and disclosure agreements. I think in this instance transparency is probably the best safeguard, so being up fornt and discussing with customers, ensuring they understand what data is being collected, why and who it will be shared with is paramount.
+
+
+### Q9 	Describe the structural aspects of the relational database model. Your description should include information about the structure in which data is stored and how relations are represented in that structure.
+In a relational database model data is stored in a collection of tables, each having a unique name. Within each table there are columns, which store categorical data, and rows (or tuples) that store relational data. 
+For example in a database of books, a row will provide information about each element. Lets say in this example that is each book. A row may consist of a ID number, title, author, date of publication, genre, length.
+The columns however will be the cate*gorical data, so in this case there will be a column for each of the above pieces of infoprmation related to each individual book.
+Each table will have a **primary key?**, which is a *unique* identifier for each element. If the table is linked to another table, lets say in this case there is a table for each author's information(Auth-ID, name, nationality, age, country of residence) then a **foreign key** would be used to link the tables. In this case perhaps instead of having an author name in the original table, it wouldf have an author ID thus linking to the authors details.
+Relations are represented in three basic way:
+- **One to one** relations are when there is only one record on each side fo the relationship. In the above example think Author ID <-> Author name.
+- **One to many** relations consist of a lopsided amount of records, with one on one side and more than one on the other. Tink for example Author ->Book1, Book2, Book3
+- **Many to many** relationships are when there are multiple records on both sides of the relationship. For for academic books that have multiple authors, you would have Auth1, Auth2, Auth3 <-> Book1, Book2, Book3.
+
+### Q10 Describe the integrity aspects of the relational database model. Your description should include information about the types of data integrity and how they can be enforced in a relational database.
+Relational databases require integrity, otherwise what is the point? There are three main types of integrity.
+**Entity integrity** requires every entity to have a unique and not-null primary key. You will often see this as some form of ID, like UserID, where any other property of an entity could be dublipacted.
+**Referential integrity** requires that every foreign key *is* a primary key of another table, and that it is not of a conflicting data type. This ensures that the reference is valid and data can be retrieved.
+**Domain integrity** means that every record in a domain meets the requirements specified by that domain. For example if the domain required your bank account number and you instead wrote 'bananas' this would mess up the integrity of the database.
+
+
+### Q11 Describe the manipulative aspects of the relational database model. Your description should include information about the ways in which data is manipulated (added, removed, changed, and retrieved) in a relational database.
+Following the CRUD methodology, the following commands are used to manipulate data in a relational database model:
+**INSERT** is how we add data to a database. When inserted,  a table must be specified, data must have a primary key assigned (this can be automated) and the colums to be populated must be specified as well as what they are to be populated with. Data entered must conform to column requirements re: data type.
+**DELETE** allows for the deletion of one or more (using the WHERE command) rows from a table. Tablename must be specified and care must be taken as this action is irreversible.
+**UPDATE** allows for the manipulation of data contained within columns. The use of the WHERE command is essential here or else you could end up updating entire columns of information. First the table must be specified, then the new contents, then the WHERE. as with deletion, this action is irreversible. 
+**SELECT** is the command used to retrieve one or many records from a table. A table must be specified (FROM) as well as at least one column that you want to see the information from. An asterisk can be used as a catch-all.

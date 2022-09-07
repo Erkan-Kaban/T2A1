@@ -1,7 +1,7 @@
 # Workbook Assignment A
 ### Patrick Hamer
 
-### Q1 Describe the architecture of a typical Flask application: 200-300
+### Q1 Describe the architecture of a typical Flask application: 
 A typical flask application, beginning from the user themselves would start at the User interface. This is called the *client layer*. This is essentially the user-end app that will be used to request and receive information, usuaslly written in HTML, CSS and JS.
 The app will communicate with an API layer, which is basically software that allows different machines to communicate with one another. The API will forward instructions to the server's *app layer*, which is where to the logic required to perform requests will be stored. This will be written on Python, Ruby, Java or any other programming language. This is where the claculations will be performed to figure out exactly what it is the server side should be doing.
 Information will be retrieved from the *database layer*. This layer is where the the bulk of information is stored and where you will find applications like PostgreSQL in operation. It will the SQL that allows for data to be retreved according to the logic dictated by the app layer. This is also where you will find the files for things like video and audio.
@@ -9,8 +9,8 @@ Information will be retrieved from the *database layer*. This layer is where the
 Finally there is the *administrative layer*, which is the system that manages and polices the entire operation.
 
 
-### Q2 Identify a database management system (DBMS) commonly used in web applications (including Flask) and discuss the pros and cons of this database150-250
-PostgreSQL is an open source, object relational DBMS that has been around for decades and is the go-to for many industry professionals. It is operated through bash and while it has an amazing following it also has its limitations.
+### Q2 Identify a database management system (DBMS) commonly used in web applications (including Flask) and discuss the pros and cons of this database
+PostgreSQL is an open source, object relational DBMS that has been around for decades and is the go-to for many industry professionals. It is operated through bash and while it is a fantastic piece of software it also has its limitations.
 For a start, the fact that it is open source makes this a very cost effective way to do business, as well as making it possible to tailor it to your specific business needs. The downside of this is that without any one company owning it, it may be user friendly and commonly used it lacks the marketing budget to make it ubiquitous as well as not having as many skilled profesionals available for support.
 It DOES support.
 It is comparitively slower than some other DBMS (such as MySQ), however it DOES have increased integerity due to iuts ACID (Atomicity, Consistency, Isolation, and Durability) compliance. PostgreSQL is considered one of the most stable, secure DBMS in the market at the moment.
@@ -45,7 +45,7 @@ Git workflow is comprised of these main features:
 **Alpha testing** is when the software is unleashed on actual people either internally or externally to test its appropriateness and effectiveness in the real world. This is where things like accesibility will be tested.
 
 ### Q6 Discuss and analyse requirements related to information system security and how they relate to the project
-**Confidentiality**, or the notion that data could only be accessed by authorised users would be integral here. If users are having their personal details (CCard, home address etc) stored in a database you are managing then that information must be stored safely and securely. This could be achieved with an authentication process when using the app, keeping the data encrypted until users had varified their identity. While this would be approachable and user-friendly the downside is that the data WOULD be stored at your end, and would rely on the user being able to authenticate themselves.
+**Confidentiality**, or the notion that data could only be accessed by authorised users would be integral here. If users are having their personal details (Credit Card, home address etc) stored in a database you are managing then that information must be stored safely and securely. This could be achieved with an authentication process when using the app, keeping the data encrypted until users had varified their identity. While this would be approachable and user-friendly the downside is that the data WOULD be stored at your end, and would rely on the user being able to authenticate themselves.
 **Accessibility** is the idea that data is accessible at all times to authorised users. This means that data should have some sort of backup process that in the event of a catastrophic failure data can still be accessed.
 **Integrity**. That the data should bnot be corrupted is of the utmost importance. There are two times when data can be corrupted: when entered or while stored. This again comes back to authentication and authorisation but also toches on ideas like encryption, which would keep the data stored securely while it is not in use, also making it unusable if any unauthorised persons got hold of it. 
 On top of all of this there must be clear lines of communication re: what is to be secured, how secure it is to be and how this will be done. Data security does not end at the PC and staff should be trained in the implementation of chosen security protocols. 
@@ -68,15 +68,15 @@ Another aspect of the IPP act is informed consent. That customers would know wha
 ### Q9 	Describe the structural aspects of the relational database model. Your description should include information about the structure in which data is stored and how relations are represented in that structure.
 In a relational database model data is stored in a collection of tables, each having a unique name. Within each table there are columns, which store categorical data, and rows (or tuples) that store relational data. 
 For example in a database of books, a row will provide information about each element. Lets say in this example that is each book. A row may consist of a ID number, title, author, date of publication, genre, length.
-The columns however will be the cate*gorical data, so in this case there will be a column for each of the above pieces of infoprmation related to each individual book.
-Each table will have a **primary key?**, which is a *unique* identifier for each element. If the table is linked to another table, lets say in this case there is a table for each author's information(Auth-ID, name, nationality, age, country of residence) then a **foreign key** would be used to link the tables. In this case perhaps instead of having an author name in the original table, it wouldf have an author ID thus linking to the authors details.
+The columns however will be the categorical data, so in this case there will be a column for each of the above pieces of infoprmation related to each individual book.
+Each table will have a **primary key**, which is a *unique* identifier for each element. If the table is linked to another table, lets say in this case there is a table for each author's information(Auth-ID, name, nationality, age, country of residence) then a **foreign key** would be used to link the tables. In this case perhaps instead of having an author name in the original table, it wouldf have an author ID thus linking to the authors details.
 Relations are represented in three basic way:
 - **One to one** relations are when there is only one record on each side fo the relationship. In the above example think Author ID <-> Author name.
 - **One to many** relations consist of a lopsided amount of records, with one on one side and more than one on the other. Tink for example Author ->Book1, Book2, Book3
 - **Many to many** relationships are when there are multiple records on both sides of the relationship. For for academic books that have multiple authors, you would have Auth1, Auth2, Auth3 <-> Book1, Book2, Book3.
 
 ### Q10 Describe the integrity aspects of the relational database model. Your description should include information about the types of data integrity and how they can be enforced in a relational database.
-Relational databases require integrity, otherwise what is the point? There are three main types of integrity.
+Relational databases require integrity, otherwise data may be lost, overwritten, or become otherwise corrupted. There are three main types of integrity.
 **Entity integrity** requires every entity to have a unique and not-null primary key. You will often see this as some form of ID, like UserID, where any other property of an entity could be dublipacted.
 **Referential integrity** requires that every foreign key *is* a primary key of another table, and that it is not of a conflicting data type. This ensures that the reference is valid and data can be retrieved.
 **Domain integrity** means that every record in a domain meets the requirements specified by that domain. For example if the domain required your bank account number and you instead wrote 'bananas' this would mess up the integrity of the database.
@@ -89,26 +89,98 @@ Following the CRUD methodology, the following commands are used to manipulate da
 **UPDATE** allows for the manipulation of data contained within columns. The use of the WHERE command is essential here or else you could end up updating entire columns of information. First the table must be specified, then the new contents, then the WHERE. as with deletion, this action is irreversible. 
 **SELECT** is the command used to retrieve one or many records from a table. A table must be specified (FROM) as well as at least one column that you want to see the information from. An asterisk can be used as a catch-all.
 
-### Q12 Conduct research into a web application (app) and answer the following parts:  a. List and describe the software used by the app.50-100 per part
+### Q12 Conduct research into a web application (app) and answer the following parts:   50-100 per part
+I will be focusing on **Uber** for this question
+- a. List and describe the software used by the app.
+For application and data:
+Python, Java, Swift, Golang, Objective-C, Java - Programming Language
+JQuery, Backbone.js, React - Javascript Library
+Node.js - Application building
+NGINX - API
+MySQL, PostgreSQL, MongoDB, Redis, Cassandra(NoSQL), Riak (NoSQL)- Database
+Amazon EC2 - Cloud
+Kafka - Realtime Data feeds
+Apache Thrift - Cross language services developement
+RIBs - Cross platform apps (iOS/Android)
+AresDB - Analytics
+Hadoop, Apache Spark - Data storage and processing
+
+Utilities:
+Google Analytics, Mixpanel, Heap - Analytics
+Elasticsearch - RESTful search engine
+PayPal, Braintree - Payment
+Twilio - Voice & messaging
+Twilio SendGrid - Email
+TensorFlow - Library for Machine intelligence
+HackerOne - Security
+Ludwig - Deep learning
+
+DevOps:
+Sentry - Mainenance/performance
+RequireJS - JS file/module loader
+Prometheus - monitering/alerts
+Puppet Labs - configuration management
+Nagios - systems/network/infrastructure monitering 
+Zookeeper, M3, - distribution of cloud
+Graphite - graphing (performance)
+Jaeger - tracing transactions between services
+Brunch - HTML 5 Building
+uberalls - Location intelligence (communication between different locations)
+Zap - Security
+Kraken by Uber - P2P networking
+Peloton - Resource scheduling
+
+Business Tools:
+Zendesk - Customer service
+Mattermost - Chat (uChat)
+Delighted - Customer Feedback
+
 - b. Describe the hardware used to host the app.
+While technically using a hybrid model of cloud (Amazon EC2, Amazon S3) and data centers, Uber relies heavily on Amazon Web services to facilitate their app. Event he clouds fall back to Ammazon servers. They have a ratio of two clouds to one on-site server and hardware in the field relays to the nearest server, wherever that may be. If the nearest server fails, then it will bounce across to the next nearest one and so on.
+Hadoop is also used which involves a 'data warehouseing' situation to store large amounts of unstructured data.
 - c. Describe the interaction of technologies within the app
+The interaction of technologies within this app are vast and complex, with HackerOne and Sentry finding vulnerabilites and bugs before anyone nefarious does, as well as Zap providing authentication software. Mattermost and Twilio (+SendGrid) handle in app communications while Paypal handling payments and Braintree backing them up with things like money conversion.
+Uber have gradually been writing their own software to integrate into their systems, some piggybacking on existing software and others just a purpose built piece of software, but understanding the global implications of even the smallest change these developments must be craefully orchestrated, not jsut for profits but for customer and cotractor safety.
 - d. Describe the way data is structured within the app
+Data within the app is structured in both relational databases and unstructured data depending. Meta data is collected in an unstructured way in massive amounts whereas for both security and efficiency reasons user/contractor data is stored using the RDBM.
 - e. Identify entities which must be tracked by the app
+Customer - Name, past trips, payment info, phone, address, email, password
+Driver - Name, car info, payment info, phone, address, email, password
+Car - Rego, age, make & model, Roadworthy date, colour
+Trip - Time, destination, source, meta details
+Payment - Credit Card, Exp Date, CCV
 - f. Identify the relationships and associations between the entities you have identified in part (e)
+Customer <-> Driver (Many to many)
+Driver <-> Car (One to One)
+Customer <-> Payment (Many to Many)
+Trip -> Driver (Many to Many)
+Trip <-> Customer (Many to Many)
+Payment <-> Trip (One to One)
+
 - g. Design a schema using an Entity Relationship Diagram (ERD) appropriate for the database of this website (assuming a relational database model)
 
 
 
 ### References:
+While I have not directly used any info from websites, along with EdStem and the lessons provbided by my educators I found htese sites very helpful:
+**Agile**:
 https://agilemanifesto.org/
 https://hive.com/blog/what-is-agile-project-management-methodology/
-
+**Manual Testing**
 https://www.browserstack.com/guide/manual-testing-tutorial Jash Unadkat, Technical Content Writer at BrowserStack - December 11, 2021
-
+**Privacy Policy**
 https://ovic.vic.gov.au/privacy/information-privacy-principles-full-text/
 https://content.legislation.vic.gov.au/sites/default/files/2022-08/14-60aa028%20authorised.pdf
-
+**Security**
 https://www.dnv.com/article/the-three-pillar-approach-to-cyber-security-data-and-information-protection-165683
-
+**PostgreSQL**
 https://www.cybertec-postgresql.com/en/postgresql-overview/advantages-of-postgresql/
 https://www.guru99.com/introduction-postgresql.html
+https://www.oreilly.com/library/view/sql-and-relational/9781449319724/ch01s04.html
+**App Architecture**
+https://www.simform.com/blog/web-application-architecture/
+**Stack information**
+https://stackshare.io/uber-technologies/uber#stack
+https://theappsolutions.com/blog/development/uber-tech-stack/
+**Uber Info**
+https://uber.com
