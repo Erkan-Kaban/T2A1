@@ -2,20 +2,19 @@
 ### Patrick Hamer
 
 ### Q1 Describe the architecture of a typical Flask application: 
-A typical flask application, beginning from the user themselves would start at the User interface. This is called the *client layer*. This is essentially the user-end app that will be used to request and receive information, usuaslly written in HTML, CSS and JS.
-The app will communicate with an API layer, which is basically software that allows different machines to communicate with one another. The API will forward instructions to the server's *app layer*, which is where to the logic required to perform requests will be stored. This will be written on Python, Ruby, Java or any other programming language. This is where the claculations will be performed to figure out exactly what it is the server side should be doing.
-Information will be retrieved from the *database layer*. This layer is where the the bulk of information is stored and where you will find applications like PostgreSQL in operation. It will the SQL that allows for data to be retreved according to the logic dictated by the app layer. This is also where you will find the files for things like video and audio.
-*3rd Party* layers are things such as Paypal, 'Login with facebook', Steam etc. These are 3rd party apps that can be linked to work in another app.
-Finally there is the *administrative layer*, which is the system that manages and polices the entire operation.
+A typical flask application, beginning from the user themselves would start at the User interface. This is called the *client layer*. This is essentially the user-end app that will be used to request and receive information, usually written in HTML, CSS and JS. The client layer will use HTTP requests to communicate with the app layer. For example a user may enter an address for a netflix movie. The GUI (Graphical User Interface) will communicate this to the *API layer*.
+An API is basically software that allows different machines to communicate with one another. The API will forward instructions to the server's *app layer*, which is where to the logic required to perform requests will be stored. This will be written on Python, Ruby, Java or any other programming language. This is where the calculations will be performed to figure out exactly what it is the server side should be doing. For our example on Netlfix, the app layer will locate and retrieve the movie from the database layer.
+Information will be retrieved from the *database layer*. This layer is where the the bulk of information is stored and where you will find applications like PostgreSQL in operation. It will the SQL that allows for data to be retreved according to the logic dictated by the app layer. This is also where you will find the files for things like video and audio for our netflix example. Databases are organised into tables that have identifying keys for each entity, thus making retrieval mroe efficient.
+*3rd Party* layers are things such as Paypal, 'Login with facebook', Steam etc. These are 3rd party apps that can be linked to work in another app. In this instance it's actually a bit dodgy as Netflix has pulled some tricks in the past to avoid Apple's App Store fees, however what would normally happen is that external software wpould handle things like payment. Whether it be for security reasons, or simply because an app has become so commonly used as to be a means of identification in itself, this external party will usually have resources dedicated to some specific aspect that our app uses. For example PayPal would already have the infrastructure in place to handle sensitive information such as credit card details, as well as existing information pertaining to the individual customer thus making outsourcing this work more cost effective
+Finally there is the *administrative layer*, which is the system that manages and polices the entire operation, for example setting/retrieving passwords, assigning authorisation levels for users and staff, etc. This would be why you and I cannot upload a movie to Netflix, and also why certain titles can be removed from the service if they are deemed inappropriate.
 
 
 ### Q2 Identify a database management system (DBMS) commonly used in web applications (including Flask) and discuss the pros and cons of this database
 PostgreSQL is an open source, object relational DBMS that has been around for decades and is the go-to for many industry professionals. It is operated through bash and while it is a fantastic piece of software it also has its limitations.
 For a start, the fact that it is open source makes this a very cost effective way to do business, as well as making it possible to tailor it to your specific business needs. The downside of this is that without any one company owning it, it may be user friendly and commonly used it lacks the marketing budget to make it ubiquitous as well as not having as many skilled profesionals available for support.
-It DOES support.
-It is comparitively slower than some other DBMS (such as MySQ), however it DOES have increased integerity due to iuts ACID (Atomicity, Consistency, Isolation, and Durability) compliance. PostgreSQL is considered one of the most stable, secure DBMS in the market at the moment.
-When it comes to scalability PostgreSQL talks a big game and has pretty extreme limits on the size of databases (32TB), however after reading some reviews it would appear that horizontal scaling can be a bit complex when it comes to setting up and managing.
-While using PostgreSQL is fairly straightforward, and the use of write-ahead logging (WAL) makes it a fairly fault tolernat system, intitial install and setup can be a challenge for inexperienced users.
+It is comparitively slower than some other DBMS (such as MySQL), however it DOES have increased integerity due to its ACID (Atomicity, Consistency, Isolation, and Durability) compliance. PostgreSQL is considered one of the most stable, secure DBMS in the market at the moment. It is also often going to be slower than NoSQL databases as it may have to run through many joined tables to answer a query, whereas in NoSQL tables are optimised for such actions.
+When it comes to scalability PostgreSQL talks a big game and has pretty extreme limits on the size of databases (32TB), however after reading some reviews it would appear that horizontal scaling can be a bit complex when it comes to setting up and managing. This is a contrast to something like NoSQL, where horiontal scaling is not an issue.
+While using PostgreSQL is fairly straightforward, and the use of write-ahead logging (WAL) makes it a fairly fault tolerant system, intitial install and setup can be a challenge for inexperienced users.
 With all that being said there is a reason that PostgreSQL has been awarded "Database System of the year" a few times.
 It is capable, stable, secure, efficient, and fairly intuitive to use.
 ### Q3 Discuss the implementation of Agile project management methodology
@@ -63,6 +62,11 @@ Schedule 1 of the Privacy and Data Protection Act 2014 (Vic) contains the Inform
 Confidentiality and annonymity are two very import aspects of the privacy act. User data must be kept confidential and where possible must not be linked to any unique identifiers. While this may seem impossible while using databases, The fact of the matter is that as long as a user knows their login details it would be possible to maintain a degree of this annonymity. Having two seperate databases, one used for the general purpose of the app and one used for accounts/infrastructure could be maintained, with only relevant staff able to access the information that identifies customers.
 Confidentiality coud be achieved with a combination of authentication, authorisation and encryption as per the answers to earlier questions. Keeping information locked behind security gateways would stop unauthorized staff accessing it and encryption would make sure that even if hackers got it, the information they had would be unusable.
 Another aspect of the IPP act is informed consent. That customers would know what kind of data was being collected and stored as well as who that data was being shared with. This could be achieved with disclaimers and disclosure agreements. I think in this instance transparency is probably the best safeguard, so being up fornt and discussing with customers, ensuring they understand what data is being collected, why and who it will be shared with is paramount.
+From a broader perspective, given that customers may not reside in Melbourne as I do, it is laso worth looking at other data laws throughout the world. The GDPR, introduced in 2018 is Europe's law on data use and collection and one of the harshest in the world. While more and mroe individuals and services are relying on data warehouses and cloud storage to store their data these guys have come in heavy introducing laws to curtail the over/misuse of data. The principles defined within are similar to those in Melbourne, with transparency being key as well as purpose limitation (only using collected data for the reasons specified to the data subject) and data minimization.
+In this instance we could compy with these rules by, obviously, being transparent with our clientele, honest with our usage of data but also keeping data we collect to the miinimum requred to perform the tasks we need to.
+Laws pertaining to storage limitations and accuracy are also very similar to those in Melbourne. Data must be kept up to date and only retained as long as it serves its intended purpose. 
+Probably the most pertinent part of the GDPR however, is accountability. The act states that We will be accountable for being able to demonstrate our compliance, and to that effect should have trained staff in place to make sure we are in line with these rules at all time. This could of course jsut be as simple as staff training for a small team of one or two, however as the project (and thus the team) grow it may be pertinent to employ a full time Data orginization officer. Keeping detailed records of the storage and use of user data would also be a great way to comply. In the same way a tattoo artists keeps sterilisation records for hteir equiptment, so to should tech companies keep records of what is still often a barely understood, sometimes under-regulated but potentially very dangerous area of what they do.
+
 
 
 ### Q9 	Describe the structural aspects of the relational database model. Your description should include information about the structure in which data is stored and how relations are represented in that structure.
@@ -77,9 +81,12 @@ Relations are represented in three basic way:
 
 ### Q10 Describe the integrity aspects of the relational database model. Your description should include information about the types of data integrity and how they can be enforced in a relational database.
 Relational databases require integrity, otherwise data may be lost, overwritten, or become otherwise corrupted. There are three main types of integrity.
-**Entity integrity** requires every entity to have a unique and not-null primary key. You will often see this as some form of ID, like UserID, where any other property of an entity could be dublipacted.
+**Entity integrity** requires every entity to have a unique and not-null primary key. You will often see this as some form of ID, like UserID, where any other property of an entity could be duplicated.
 **Referential integrity** requires that every foreign key *is* a primary key of another table, and that it is not of a conflicting data type. This ensures that the reference is valid and data can be retrieved.
 **Domain integrity** means that every record in a domain meets the requirements specified by that domain. For example if the domain required your bank account number and you instead wrote 'bananas' this would mess up the integrity of the database.
+Looking at the simple ERD below you can see that the Primary Key of Author is a NOT NULL id number instead of an author's name. This is because two or more authors could share the same name, invalidating the integrity of the entity.
+You can also see that the *foreign key* in the second table is linked to the *primary key* of the first. This ensures referential integrity as the FK is directly linked to the unique PK of the first table.
+<img src=./docs/bookerd.png>
 
 
 ### Q11 Describe the manipulative aspects of the relational database model. Your description should include information about the ways in which data is manipulated (added, removed, changed, and retrieved) in a relational database.
@@ -88,6 +95,9 @@ Following the CRUD methodology, the following commands are used to manipulate da
 **DELETE** allows for the deletion of one or more (using the WHERE command) rows from a table. Tablename must be specified and care must be taken as this action is irreversible.
 **UPDATE** allows for the manipulation of data contained within columns. The use of the WHERE command is essential here or else you could end up updating entire columns of information. First the table must be specified, then the new contents, then the WHERE. as with deletion, this action is irreversible. 
 **SELECT** is the command used to retrieve one or many records from a table. A table must be specified (FROM) as well as at least one column that you want to see the information from. An asterisk can be used as a catch-all.
+It is also imperative to make sure are **cleansing** and **preparing** appropriately. Disposing of redundant records and fixing errors in data entry will enswure an efficient running of a database.
+Using the previous example of an Author-Book database, you could *insert* the authors name, which would need to be a string of x amount of characters (char(x)) NOT NULL, thus ensuring the id referenced an actual author. If an author was no longer stocked in your library, you could delete that author from your library, which would remove the redundant data so that something like a search algorithm would have an easier time finding what you were looking for. If an author changed his name, or perhaps became known by another nickname (Christopher Brookmyre is now referred to as 'Chris' Brookmyre) then the records could be updated to reflect this. This would be considered cleansing as it would ensure that there were not books related to two different authors that were in fact the same person.
+To view the books of an authour tou could use the SELECT command. For example saying SELECT * FROM books WHERE author_id = {AuthorName} would give you a list of all books by that specific author. Again this is where cleansing is important. Think back in the days when you had an iPod and you would have 5 different spellings/capitalizations of the same artist's name due to dodgy downloads, and how frustrating that was. Same principle applies here but the frustration is on a much grander scale.
 
 ### Q12 Conduct research into a web application (app) and answer the following parts:   50-100 per part
 I will be focusing on **Uber** for this question
@@ -150,19 +160,41 @@ Car - Rego, age, make & model, Roadworthy date, colour
 Trip - Time, destination, source, meta details
 Payment - Credit Card, Exp Date, CCV
 - f. Identify the relationships and associations between the entities you have identified in part (e)
-Customer <-> Driver (Many to many)
-Driver <-> Car (One to One)
-Customer <-> Payment (Many to Many)
-Trip -> Driver (Many to Many)
-Trip <-> Customer (Many to Many)
-Payment <-> Trip (One to One)
+Trip has one customer
+Customer has many trips
+Trip has one driver
+Driver has many trips
+Trip has one fare
+Fare has one trip
+Trip has one payment
+Payment has one trip
+Trip has one car
+Car has many trips
+Trip has many locations
+Location has many trips
+Trip has many ratings
+Ratings have many trips
+Ratings are for many trips
+Ratings are for many customers
+Ratings are for many drivers
+Drivers have many ratings
+Customers have many ratings
+Locations have one map ID
+Map IDs have one location
+Locations have one address
+Addresses have one location
+Customers have many payid
+Payid has one customer
+Driver has one car
+Car has one driver
 
 - g. Design a schema using an Entity Relationship Diagram (ERD) appropriate for the database of this website (assuming a relational database model)
+<img src=./docs/ubererd.png>
 
 
 
 ### References:
-While I have not directly used any info from websites, along with EdStem and the lessons provbided by my educators I found htese sites very helpful:
+While I have not directly used any info from websites, along with EdStem and the lessons provided by my educators I found these sites very helpful:
 **Agile**:
 https://agilemanifesto.org/
 https://hive.com/blog/what-is-agile-project-management-methodology/
@@ -171,6 +203,7 @@ https://www.browserstack.com/guide/manual-testing-tutorial Jash Unadkat, Technic
 **Privacy Policy**
 https://ovic.vic.gov.au/privacy/information-privacy-principles-full-text/
 https://content.legislation.vic.gov.au/sites/default/files/2022-08/14-60aa028%20authorised.pdf
+https://gdpr.eu/what-is-gdpr/
 **Security**
 https://www.dnv.com/article/the-three-pillar-approach-to-cyber-security-data-and-information-protection-165683
 **PostgreSQL**
